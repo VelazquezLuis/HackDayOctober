@@ -1,8 +1,7 @@
-
-function convertToDNA(inputStr) {
+function convert(inputStr, strandType) {
 let dnaMap = [];
 
-let bases = ['C', 'G', 'A', 'T'];
+let bases = strandType == "DNA" ? ['C', 'G', 'A', 'T'] : ['C', 'G', 'A', 'U'];
 for (let i = 32, c = [0, 0, 0, 0, 0]; i <= 127; i++) {
 	let seq="";
 	seq += bases[c[0]];
