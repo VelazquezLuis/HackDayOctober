@@ -31,4 +31,14 @@ for (let i = 32, c = [0, 0, 0, 0, 0]; i <= 127; i++) {
 
 const dnaString = inputStr.split("").map(
   (letter, i) => dnaMap[str.charCodeAt(i)-32]).join("");
+
+  module.exports = dnaString;
+}
+
+function complement(inputStrand) {
+
+
+    for (i = 0; i < inputStrand.length; i++) {
+
+    }
 }
