@@ -65,6 +65,36 @@ function generateMap(bases) {
         } else c[3]++;
       } else c[4]++;
     }
+    
+    const dnaString = inputStr.split("").map(
+      (letter, i) => dnaMap[inputStr.charCodeAt(i)-32]).join("");
+    
+      return dnaString;
+}
+    
+    function complement(inputStrand) {
+        const comps = {"a":"t", "t":"a", "c":"g", "g":"c",
+                        "A":"T", "T":"A", "C":"G", "G":"C"};
+
+        let complement = "";
+
+        for (i = 0; i < inputStrand.length; i++) {
+            if (comps[inputStrand[i]]) {
+                complement += comps[inputStrand[i]];
+            } else {
+                complement = "Invalid input strand";
+                break;
+            }
+        }
+
+        return complement;
+    }
+
+module.exports = convert();
+
+function generateMap() {
+
+}
 
     return dnaMap;
 }
