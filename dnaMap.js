@@ -1,17 +1,11 @@
 function convertString() {
    let n1 = document.getElementById("exampleInputEmail1");
    let n2 = document.getElementById("exampleInputEmail2");
-   n2.value = "";
+   let n3 = document.getElementById("rnaInput2");
    let result = convert(n1.value, "DNA");
+   let result2 = convert(n1.value, "RNA");
    n2.value = result;
-}
-
-function convertStringToRNA() {
-    let n1 = document.getElementById("rnaInput1");
-    let n2 = document.getElementById("rnaInput2");
-    n2.value = "";
-    let result = convert(n1.value, "RNA");
-    n2.value = result;
+   n3.value = result2;
 }
 
 function convert(inputStr, strandType) {    
