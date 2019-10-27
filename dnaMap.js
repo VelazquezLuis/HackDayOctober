@@ -1,13 +1,44 @@
 function convertString() {
-  var n1 = document.getElementById("exampleInputEmail1");
-  var n2 = document.getElementById("exampleInputEmail2");
-  n2.value = convert(n1.value, "DNA");
+  let n1 = document.getElementById("exampleInputEmail1");
+  let n2 = document.getElementById("exampleInputEmail2");
+  let n3 = document.getElementById("exampleInputEmail3");
+  let result = convert(n1.value, "DNA");
+  let result2 = convert(n1.value, "RNA");
+  n2.value = result;
+  n3.value = result2;
 }
 
-function convert(inputStr, strandType) {
-   let dnaMap = [];
-   
+function convert(inputStr, strandType) {    
    let bases = strandType == "DNA" ? ['C', 'G', 'A', 'T'] : ['C', 'G', 'A', 'U'];
+   const dnaMap = generateMap(bases);
+   
+   const dnaString = inputStr.split("").map(
+     (letter, i) => dnaMap[inputStr.charCodeAt(i)-32]).join("");
+   
+     return dnaString;
+}
+
+   function complement(inputStrand) {
+       const comps = {"a":"t", "t":"a", "c":"g", "g":"c",
+                       "A":"T", "T":"A", "C":"G", "G":"C"};
+
+       let complement = "";
+
+       for (i = 0; i < inputStrand.length; i++) {
+           if (comps[inputStrand[i]]) {
+               complement += comps[inputStrand[i]];
+           } else {
+               complement = "Invalid input strand";
+               break;
+           }
+       }
+
+       return complement;
+   }
+
+function generateMap(bases) {
+   let dnaMap = [];
+
    for (let i = 32, c = [0, 0, 0, 0, 0]; i <= 127; i++) {
        let seq="";
        seq += bases[c[0]];
@@ -34,29 +65,8 @@ function convert(inputStr, strandType) {
        } else c[3]++;
      } else c[4]++;
    }
-   
-   const dnaString = inputStr.split("").map(
-     (letter, i) => dnaMap[inputStr.charCodeAt(i)-32]).join("");
-   
-     return dnaString;
+
+   return dnaMap;
 }
-   
-   function complement(inputStrand) {
-       const comps = {"a":"t", "t":"a", "c":"g", "g":"c",
-                       "A":"T", "T":"A", "C":"G", "G":"C"};
-
-       let complement = "";
-
-       for (i = 0; i < inputStrand.length; i++) {
-           if (comps[inputStrand[i]]) {
-               complement += comps[inputStrand[i]];
-           } else {
-               complement = "Invalid input strand";
-               break;
-           }
-       }
-
-       return complement;
-   }
 
 module.exports = { convert };
