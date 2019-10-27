@@ -46,9 +46,9 @@ function generateMap(bases) {
       seq += bases[c[2]];
       seq += bases[c[3]];
       seq += bases[c[4]];
-      
+
       dnaMap.push(seq);
-      
+
         if (c[4] == 3) {
           c[4] = 0;
         if (c[3] == 3) {
@@ -59,42 +59,17 @@ function generateMap(bases) {
               c[1] = 0;
               if (c[0] == 3)	c[0] = 0;
               else c[0]++;
-    
+
             } else c[1]++;
           } else c[2]++;
         } else c[3]++;
       } else c[4]++;
     }
-    
+
     const dnaString = inputStr.split("").map(
       (letter, i) => dnaMap[inputStr.charCodeAt(i)-32]).join("");
-    
+
       return dnaString;
 }
-    
-    function complement(inputStrand) {
-        const comps = {"a":"t", "t":"a", "c":"g", "g":"c",
-                        "A":"T", "T":"A", "C":"G", "G":"C"};
 
-        let complement = "";
-
-        for (i = 0; i < inputStrand.length; i++) {
-            if (comps[inputStrand[i]]) {
-                complement += comps[inputStrand[i]];
-            } else {
-                complement = "Invalid input strand";
-                break;
-            }
-        }
-
-        return complement;
-    }
-
-module.exports = convert();
-
-function generateMap() {
-
-}
-
-    return dnaMap;
-}
+module.exports = { convert };
