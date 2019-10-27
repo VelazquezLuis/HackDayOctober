@@ -1,0 +1,17 @@
+
+
+html{
+  background-color: #333;
+}
+body {
+  background-color: black !important;
+}
+    #body1 {
+      margin-bottom: 5em;
+      background-color: whitesmoke;
+    }
+    #image {
+      background-image: url("./dna-banner.jpg");
+      background-size: 100%;
+      color:white;
+    }
