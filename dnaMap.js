@@ -32,12 +32,23 @@ function convert(inputStr, strandType) {
     const dnaString = inputStr.split("").map(
       (letter, i) => dnaMap[str.charCodeAt(i)-32]).join("");
     
-      module.exports = dnaString;
       return dnaString;
-    }
+}
     
     function complement(inputStrand) {
+        const comps = {"a":"t", "t":"a", "c":"g", "g":"c",
+                        "A":"T", "T":"A", "C":"G", "G":"C"};
+
+        let complement = "";
+
         for (i = 0; i < inputStrand.length; i++) {
-    
+            if (comps[inputStrand[i]]) {
+                complement += comps[inputStrand[i]];
+            } else {
+                complement = "Invalid input strand";
+                break;
+            }
         }
+
+        return complement;
     }
