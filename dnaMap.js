@@ -1,3 +1,9 @@
+function convertString() {
+   var n1 = document.getElementById("exampleInputEmail1");
+   var n2 = document.getElementById("exampleInputEmail2");
+   n2.value = convert(n1.value, "DNA");
+}
+
 function convert(inputStr, strandType) {
     let dnaMap = [];
     
@@ -30,7 +36,7 @@ function convert(inputStr, strandType) {
     }
     
     const dnaString = inputStr.split("").map(
-      (letter, i) => dnaMap[str.charCodeAt(i)-32]).join("");
+      (letter, i) => dnaMap[inputStr.charCodeAt(i)-32]).join("");
     
       return dnaString;
 }
@@ -53,4 +59,8 @@ function convert(inputStr, strandType) {
         return complement;
     }
 
-    module.exports = convert;
+module.exports = convert();
+
+function generateMap() {
+
+}

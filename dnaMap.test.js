@@ -1,43 +1,8 @@
-const convert = ('/dnaMap');
+import convert from './dnaMap';
+
+convert.log = jest.fn.mockReturnValue('test')
 
 // DNA tests
-test('a is ', () => {
-    expect('a').toMatch('');
-});
-
-test('A is ', () => {
-    expect('A').toMatch();
-});
-
-test('a a is ', () => {
-    expect('a a').toMatch('');
-});
-
-test('cat is ', () => {
-    expect('cat').toMatch();
-});
-
-test('Cat is ', () => {
-    expect('Cat').toMatch();
-});
-
-//  RNA tests
-test('a is ', () => {
-    expect('a').toMatch('');
-});
-
-test('A is ', () => {
-    expect('A').toMatch();
-});
-
-test('a a is ', () => {
-    expect('a a').toMatch();
-});
-
-test('cat is ', () => {
-    expect('cat').toMatch();
-});
-
-test('Cat is ', () => {
-    expect('Cat').toMatch();
+test('a is cgccg', () => {
+    expect(convert('a', 'DNA')).toMatch('cgccg');
 });
