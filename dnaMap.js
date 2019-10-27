@@ -71,4 +71,6 @@ function generateMap(bases) {
         } else c[3]++;
       } else c[4]++;
     }
+
+    return dnaMap;
 }
