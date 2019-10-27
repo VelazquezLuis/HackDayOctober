@@ -1,43 +1,8 @@
-const expectExport = require("expect")
+import convert from './dnaMap';
+
+convert.log = jest.fn.mockReturnValue('test')
 
 // DNA tests
-test('a is [  ]', () => {
-    expect('a').toBe('[   ]');
-});
-
-test('A is [    ]', () => {
-    expect('A').toBe([   ]);
-});
-
-test('a a is [      ]', () => {
-    expect('a a').toBe([    ]);
-});
-
-test('cat is [      ]', () => {
-    expect('cat').toBe();
-});
-
-test('Cat is [    ]', () => {
-    expect('Cat').toBe([   ]);
-});
-
-//  RNA tests
-test('a is [  ]', () => {
-    expect('a').toBe('[   ]');
-});
-
-test('A is [    ]', () => {
-    expect('A').toBe([   ]);
-});
-
-test('a a is [      ]', () => {
-    expect('a a').toBe([    ]);
-});
-
-test('cat is [      ]', () => {
-    expect('cat').toBe();
-});
-
-test('Cat is [    ]', () => {
-    expect('Cat').toBe([   ]);
+test('a is cgccg', () => {
+    expect(convert('a', 'DNA')).toMatch('cgccg');
 });
