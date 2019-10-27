@@ -6,6 +6,14 @@ function convertString() {
    n2.value = result;
 }
 
+function convertStringToRNA() {
+    let n1 = document.getElementById("rnaInput1");
+    let n2 = document.getElementById("rnaInput2");
+    n2.value = "";
+    let result = convert(n1.value, "RNA");
+    n2.value = result;
+}
+
 function convert(inputStr, strandType) {
     let dnaMap = [];
     
