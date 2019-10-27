@@ -14,9 +14,7 @@ function convertStringToRNA() {
     n2.value = result;
 }
 
-function convert(inputStr, strandType) {
-    let dnaMap = [];
-    
+function convert(inputStr, strandType) {    
     let bases = strandType == "DNA" ? ['C', 'G', 'A', 'T'] : ['C', 'G', 'A', 'U'];
     const dnaMap = generateMap(bases);
     
