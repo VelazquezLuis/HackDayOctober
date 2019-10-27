@@ -43,6 +43,7 @@ function convert(inputStr, strandType) {
     }
 
 function generateMap(bases) {
+    let dnaMap = [];
 
     for (let i = 32, c = [0, 0, 0, 0, 0]; i <= 127; i++) {
         let seq="";
