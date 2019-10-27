@@ -1,7 +1,7 @@
 function convertString() {
    let n1 = document.getElementById("exampleInputEmail1");
    let n2 = document.getElementById("exampleInputEmail2");
-   let n3 = document.getElementById("rnaInput2");
+   let n3 = document.getElementById("exampleInputEmail3");
    let result = convert(n1.value, "DNA");
    let result2 = convert(n1.value, "RNA");
    n2.value = result;
