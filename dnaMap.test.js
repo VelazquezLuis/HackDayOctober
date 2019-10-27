@@ -1,8 +1,6 @@
-import convert from './dnaMap';
-
-convert.log = jest.fn.mockReturnValue('test')
+const convert = require('./dnaMap')['convert'];
 
 // DNA tests
-test('a is cgccg', () => {
-    expect(convert('a', 'DNA')).toMatch('cgccg');
+test('a is CGCCG', () => {
+    expect(convert('a', 'DNA')).toBe('CGCCG');
 });
