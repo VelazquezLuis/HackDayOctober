@@ -18,6 +18,34 @@ function convert(inputStr, strandType) {
     let dnaMap = [];
     
     let bases = strandType == "DNA" ? ['C', 'G', 'A', 'T'] : ['C', 'G', 'A', 'U'];
+    const dnaMap = generateMap(bases);
+    
+    const dnaString = inputStr.split("").map(
+      (letter, i) => dnaMap[inputStr.charCodeAt(i)-32]).join("");
+    
+      return dnaString;
+}
+    
+    function complement(inputStrand) {
+        const comps = {"a":"t", "t":"a", "c":"g", "g":"c",
+                        "A":"T", "T":"A", "C":"G", "G":"C"};
+
+        let complement = "";
+
+        for (i = 0; i < inputStrand.length; i++) {
+            if (comps[inputStrand[i]]) {
+                complement += comps[inputStrand[i]];
+            } else {
+                complement = "Invalid input strand";
+                break;
+            }
+        }
+
+        return complement;
+    }
+
+function generateMap(bases) {
+
     for (let i = 32, c = [0, 0, 0, 0, 0]; i <= 127; i++) {
         let seq="";
         seq += bases[c[0]];
@@ -44,31 +72,4 @@ function convert(inputStr, strandType) {
         } else c[3]++;
       } else c[4]++;
     }
-    
-    const dnaString = inputStr.split("").map(
-      (letter, i) => dnaMap[inputStr.charCodeAt(i)-32]).join("");
-    
-      return dnaString;
-}
-    
-    function complement(inputStrand) {
-        const comps = {"a":"t", "t":"a", "c":"g", "g":"c",
-                        "A":"T", "T":"A", "C":"G", "G":"C"};
-
-        let complement = "";
-
-        for (i = 0; i < inputStrand.length; i++) {
-            if (comps[inputStrand[i]]) {
-                complement += comps[inputStrand[i]];
-            } else {
-                complement = "Invalid input strand";
-                break;
-            }
-        }
-
-        return complement;
-    }
-
-function generateMap() {
-
 }
