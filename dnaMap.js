@@ -52,3 +52,5 @@ function convert(inputStr, strandType) {
 
         return complement;
     }
+
+    module.exports = convert;
