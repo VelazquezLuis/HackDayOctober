@@ -1,7 +1,9 @@
 function convertString() {
-   var n1 = document.getElementById("exampleInputEmail1");
-   var n2 = document.getElementById("exampleInputEmail2");
-   n2.value = convert(n1.value, "DNA");
+   let n1 = document.getElementById("exampleInputEmail1");
+   let n2 = document.getElementById("exampleInputEmail2");
+   n2.value = "";
+   let result = convert(n1.value, "DNA");
+   n2.value = result;
 }
 
 function convert(inputStr, strandType) {
