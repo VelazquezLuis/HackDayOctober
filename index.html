@@ -1,130 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>DNA Strings</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./index.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-  <title>DNA Strings </title>
-</head>
-
-<body>
-  <div class="container">
-    <div class="row">
-      <div  id="image" class="position-relative overflow-hidden p-3 p-md-2 m-md-1 text-center bg-light">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-          <h1 class="display-4 font-weight-normal">DNA Strings</h1>
-          <h2 class="lead font-weight-normal">Challenge:</h2>
-          <p>Description: DNA is a very stable and compact storage medium. The language of DNA consists of four bases,
-            each
-            of which may be thought of as a character in the DNA alphabet. For our purposes, these characters (in order)
-            are: A, T, G, and C. We would like to store digital data in DNA!</p>
-        </div>
-        <div class="product-device shadow-sm d-none d-md-block"></div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-      </div>
-
-    </div><!-- row -->
-    <div class="row" id="body1">
-      <div class=" col-12 col-md-4 d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Enter word</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="Example:  cat">
-            <small id="emailHelp" class="form-text text-muted">Please use Alpha Numeric characters only</small>
+  <body onload="wipeText()">
+    <div class="container">
+      <div class="row">
+        <div
+          id="image"
+          class=" p-3 p-md-2 m-md-1 text-center"
+        >
+          <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <h1 class="display-4 font-weight-normal">DNA Strings</h1>
+            <h2 class="lead font-weight-normal">Challenge:</h2>
+            <p>
+              Description: DNA is a very stable and compact storage medium. The
+              language of DNA consists of four bases, each of which may be
+              thought of as a character in the DNA alphabet. For our purposes,
+              these characters (in order) are: A, T, G, and C. We would like to
+              store digital data in DNA!
+            </p>
           </div>
-
-          <button type="submit" onClick = "convertString()" class="btn btn-primary">Submit</button>
-        </form>
+          <div class="product-device shadow-sm d-none d-md-block"></div>
+          <div
+            class="product-device product-device-2 shadow-sm d-none d-md-block"
+          ></div>
+        </div>
       </div>
-
-      <div class=" col-12 col-md-4 d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-          <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">DNA</span>
-              </div>
-              <textarea id="exampleInputEmail2" class="form-control" aria-label="With textarea"></textarea>
+      <!-- row -->
+      <div class="row" id="body1">
+        <div
+          class=" col-12 col-md-4 my-3 pl-3"
+        >
+          <div>
+            <div class="form-group">
+              <label for="input1">Enter word</label>
+              <input
+                type="text"
+                class="form-control"
+                id="input1"
+                placeholder="Example: cat"
+                onkeypress="javascript:enter(event);"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >Please use Alpha Numeric characters only</small
+              >
             </div>
-      </div>
-      <div class=" col-12 col-md-4 d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+
+            <button
+              type="button"
+              onClick="convertString()"
+              class="btn btn-primary"
+              id="myBtn"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+
+        <div
+          class=" col-12 col-md-4 d-md-flex flex-md-equal w-100 my-md-3 pl-md-3"
+        >
           <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">RNA</span>
-              </div>
-              <textarea id="exampleInputEmail3" class="form-control" aria-label="With textarea"></textarea>
+            <div class="input-group-prepend">
+              <span class="input-group-text">DNA</span>
             </div>
+            <textarea
+              id="resultDna"
+              class="form-control"
+              aria-label="With textarea"
+            ></textarea>
+          </div>
+        </div>
+        <div
+          class=" col-12 col-md-4 d-md-flex flex-md-equal w-100 my-md-3 pl-md-3"
+        >
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">RNA</span>
+            </div>
+            <textarea
+              id="resultRNA"
+              class="form-control"
+              aria-label="With textarea"
+            ></textarea>
+          </div>
+        </div>
       </div>
-    </div><!-- row -->
-  </div><!-- container -->
-<!-- 
-  <footer class="container py-5">
-    <div class="row">
-      <div class="col-12 col-md">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-          stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img"
-          viewBox="0 0 24 24" focusable="false">
-          <title>Product</title>
-          <circle cx="12" cy="12" r="10" />
-          <path
-            d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
-        </svg>
-        <small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Features</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Cool stuff</a></li>
-          <li><a class="text-muted" href="#">Random feature</a></li>
-          <li><a class="text-muted" href="#">Team feature</a></li>
-          <li><a class="text-muted" href="#">Stuff for developers</a></li>
-          <li><a class="text-muted" href="#">Another one</a></li>
-          <li><a class="text-muted" href="#">Last time</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Resources</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Resource</a></li>
-          <li><a class="text-muted" href="#">Resource name</a></li>
-          <li><a class="text-muted" href="#">Another resource</a></li>
-          <li><a class="text-muted" href="#">Final resource</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Resources</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Business</a></li>
-          <li><a class="text-muted" href="#">Education</a></li>
-          <li><a class="text-muted" href="#">Government</a></li>
-          <li><a class="text-muted" href="#">Gaming</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>About</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Team</a></li>
-          <li><a class="text-muted" href="#">Locations</a></li>
-          <li><a class="text-muted" href="#">Privacy</a></li>
-          <li><a class="text-muted" href="#">Terms</a></li>
-        </ul>
-      </div>
+      <!-- row -->
     </div>
-  </footer> -->
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="dnaMap.js"></script>
-</body>
-
+    <!-- container -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script src="dnaMap.js"></script>
+  </body>
 </html>
