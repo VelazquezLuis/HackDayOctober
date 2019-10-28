@@ -90,4 +90,4 @@ function generateMap(bases) {
   return dnaMap;
 }
 
-// module.exports = { convert };
+module.exports = { convert };
