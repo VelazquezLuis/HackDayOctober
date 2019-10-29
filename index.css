@@ -1,17 +1,50 @@
-
-
-html{
+html {
   background-color: #333;
 }
 body {
   background-color: black !important;
 }
-    #body1 {
-      margin-bottom: 5em;
-      background-color: whitesmoke;
-    }
-    #image {
-      background-image: url("./dna-banner.jpg");
-      background-size: 100%;
-      color:white;
-    }
+
+#body1 {
+  margin-bottom: 2em;
+  background-color: whitesmoke;
+}
+#image {
+  background-image: url("./dna-banner.jpg");
+  background-size: 100%;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner {
+  height: 70vh;
+}
+.textAreaM {
+  height: 150px !important;
+}
+.display {
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width:576px) {
+  .display-desktop {
+    font-size: 2.5rem;
+    
+  }
+  .display {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .title {
+    font-size: 4.5rem;
+  }
+  .heading {
+    font-size: 3rem;
+  }
+  .display {
+    font-size: 1.6rem;
+  }
+}
